@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena Oprea — IT & Cybersecurity</title>
+<meta name="description" content="Elena Oprea — IT support background, moving into junior development and cybersecurity. Projects, skills and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F1F3F0;
+    --panel: #14181B;
+    --panel-line: #2A3136;
+    --ink: #14181B;
+    --ink-soft: #4B5459;
+    --line: #D6DAD5;
+    --accent: #2F6F6D;
+    --accent-soft: #E4EEED;
+    --amber: #C98A2C;
+    --paper: #FFFFFF;
+    --max: 700px;
+    --pad: 24px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  a{ color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover{ color: var(--ink); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position: sticky; top:0; z-index: 10;
+    background: rgba(241,243,240,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: 960px; margin: 0 auto;
+    padding: 14px var(--pad);
+    display:flex; align-items:center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .nav-brand{ font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:15px; color:var(--ink); text-decoration:none; }
+  .nav-links{ display:flex; gap:20px; font-family:'IBM Plex Mono', monospace; font-size:14px; }
+  .nav-links a{ color: var(--ink-soft); text-decoration:none; }
+  .nav-links a:hover{ color: var(--accent); }
+
+  /* ---------- Hero (terminal) ---------- */
+  .hero-wrap{ background: var(--panel); }
+  .hero{
+    max-width: 960px; margin:0 auto;
+    padding: 64px var(--pad) 56px;
+  }
+  .term{
+    font-family:'IBM Plex Mono', monospace;
+    color: #D7E4E2;
+    font-size: 16px;
+    max-width: 640px;
+  }
+  .term .line{ margin: 0 0 6px; white-space: pre-wrap; }
+  .term .prompt{ color: #7FA8A5; }
+  .term .out{ color: #F1F3F0; }
+  .term .dim{ color: #7C8A87; }
+  .cursor{
+    display:inline-block; width:8px; height:16px; background:#D7E4E2;
+    margin-left:2px; vertical-align: -2px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .status-row{
+    margin-top: 28px; display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size: 14px; color:#B9CAC7;
+  }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow: 0 0 0 3px rgba(201,138,44,0.18); }
+
+  /* ---------- Sections ---------- */
+  main{ max-width: 960px; margin: 0 auto; padding: 0 var(--pad); }
+  section{ padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-inner{ max-width: var(--max); }
+
+  h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 14px; font-weight:500;
+    color: var(--accent);
+    margin: 0 0 20px;
+  }
+  h2 .path{ color: var(--ink-soft); }
+
+  h3{ font-size: 19px; margin: 0 0 4px; }
+  p{ margin: 0 0 14px; color: var(--ink); }
+  .muted{ color: var(--ink-soft); }
+
+  .lede{ font-size: 20px; line-height:1.55; max-width: var(--max); }
+
+  /* ---------- Skills ---------- */
+  .skill-log{ border-top: 1px solid var(--line); }
+  .skill-row{
+    display:grid; grid-template-columns: 150px 1fr;
+    gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .skill-tag{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); }
+  .skill-vals{ color: var(--ink); }
+
+  /* ---------- Projects ---------- */
+  .project{ padding: 26px 0; border-top: 1px solid var(--line); }
+  .project:first-child{ border-top:none; padding-top:0; }
+  .project-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .project-links{ font-family:'IBM Plex Mono', monospace; font-size: 13px; white-space:nowrap; }
+  .project-links a{ margin-left: 14px; }
+  .project-links a:first-child{ margin-left:0; }
+  .project-tech{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft); margin: 4px 0 10px; }
+  .project ul{ margin: 8px 0 0; padding-left: 20px; }
+  .project li{ margin-bottom: 6px; }
+
+  /* ---------- Experience (changelog) ---------- */
+  .entry{ display:grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line); }
+  .entry:first-child{ border-top:none; padding-top:0; }
+  .entry-date{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft); padding-top: 3px; }
+  .entry-role{ font-weight:600; }
+  .entry-co{ color: var(--ink-soft); }
+  .entry ul{ margin: 10px 0 0; padding-left: 20px; }
+  .entry li{ margin-bottom: 6px; }
+
+  /* ---------- Contact ---------- */
+  .contact-list{ display:flex; flex-direction:column; gap: 10px; font-family:'IBM Plex Mono', monospace; font-size: 15px; }
+  .copy-btn{
+    font-family:'IBM Plex Mono', monospace; font-size: 13px;
+    background: var(--accent-soft); color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 3px;
+    padding: 3px 10px; cursor:pointer; margin-left: 10px;
+  }
+  .copy-btn:hover{ background: var(--accent); color: #fff; }
+
+  footer{ text-align:center; padding: 32px var(--pad) 48px; color: var(--ink-soft); font-size: 13px; font-family:'IBM Plex Mono', monospace; }
+
+  @media (max-width: 640px){
+    .hero{ padding: 44px var(--pad) 40px; }
+    .term{ font-size: 14.5px; }
+    section{ padding: 40px 0; }
+    .entry, .skill-row{ grid-template-columns: 1fr; gap: 6px; }
+    .entry-date{ padding-top:0; }
+    .nav-links{ gap: 14px; font-size:13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{ animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">elena.oprea</a>
+    <div class="nav-links">
+      <a href="#about">~/about</a>
+      <a href="#skills">~/skills</a>
+      <a href="#projects">~/projects</a>
+      <a href="#experience">~/experience</a>
+      <a href="#contact">~/contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-wrap" id="top">
+  <div class="hero">
+    <div class="term" id="term"></div>
+    <div class="status-row">
+      <span class="dot"></span>
+      <span>open to work · Kidderminster, UK · remote or on-site</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section id="about">
+    <div class="section-inner">
+      <h2><span class="path">~/</span>about</h2>
+      <p class="lede">I'm a Computing graduate who's spent the last few years actually doing IT work rather than just studying it — setting up hardware, sorting out technical problems, and keeping a company website running.</p>
+      <p>Alongside that I picked up Java, PHP and JavaScript, and did some hands-on work with AWS and security standards. I'm now looking to move into a <strong>Junior Developer</strong> or <strong>Junior Cybersecurity Analyst</strong> role — I like figuring out how things work, and how they break, and I pick things up quickly.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-inner">
+      <h2><span class="path">~/</span>skills</h2>
+      <div class="skill-log">
+        <div class="skill-row">
+          <div class="skill-tag">programming</div>
+          <div class="skill-vals">Java (fundamentals), HTML, CSS, JavaScript, PHP, MySQL</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-tag">cloud &amp; security</div>
+          <div class="skill-vals">AWS cloud migration basics, ISO security standards fundamentals</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-tag">it support</div>
+          <div class="skill-vals">Hardware configuration &amp; troubleshooting, RAM/system setup</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-tag">platforms</div>
+          <div class="skill-vals">WordPress, Microsoft Office 365, Google Ads &amp; SEO basics</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-tag">other</div>
+          <div class="skill-vals">Bilingual (Romanian native, English fluent), teamwork, organisation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-inner">
+      <h2><span class="path">~/</span>projects</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>5 Minute Habits</h3>
+          <div class="project-links">
+            <a href="https://5-minute-habits.netlify.app" target="_blank" rel="noopener">live</a>
+            <a href="https://github.com/opreaelena24/5-minute-habits" target="_blank" rel="noopener">code</a>
+          </div>
+        </div>
+        <div class="project-tech">HTML · CSS · JavaScript · LocalStorage</div>
+        <p>A small web app that helps people swap mindless scrolling for short, intentional 5-minute habits.</p>
+        <ul>
+          <li>Focus timer, habit categories, and a streak-tracking system</li>
+          <li>30-day progress calendar and an anti-scroll distraction counter</li>
+          <li>Dark mode, deployed live on Netlify</li>
+        </ul>
+      </div>
+
+      <!-- Add further projects here, following the same .project block structure -->
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-inner">
+      <h2><span class="path">~/</span>experience</h2>
+
+      <div class="entry">
+        <div class="entry-date">Oct 2022 —<br>present</div>
+        <div>
+          <div class="entry-role">Masking Technician &amp; Digital Support</div>
+          <div class="entry-co">Hard Anodising Treatments Ltd, Kidderminster, UK</div>
+          <ul>
+            <li>Keep the company website updated on WordPress — content, small fixes, general upkeep</li>
+            <li>Run the company's social media to help build up its presence online</li>
+            <li>Work to precise technical standards on the production side, so quality stays consistent</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">May 2021 —<br>Sept 2022</div>
+        <div>
+          <div class="entry-role">Configuration Engineer</div>
+          <div class="entry-co">Greensafe IT, Kidderminster, UK</div>
+          <ul>
+            <li>Configured hardware for client deployments, including RAM upgrades and full system setups</li>
+            <li>Handled IT support requests and troubleshooting, usually turning issues around quickly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-date">Mar 2022 —<br>Aug 2025</div>
+        <div>
+          <div class="entry-role">BSc (Hons) Computing</div>
+          <div class="entry-co">Arden University, Birmingham, UK</div>
+          <ul>
+            <li>Focus: programming, software development, data analysis, artificial intelligence</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <h2><span class="path">~/</span>contact</h2>
+      <div class="contact-list">
+        <div>email — <a href="mailto:opreaelena24@gmail.com">opreaelena24@gmail.com</a>
+          <button class="copy-btn" onclick="copyEmail(this)">copy</button>
+        </div>
+        <div>linkedin — <a href="https://linkedin.com/in/elena-oprea-280b9a242" target="_blank" rel="noopener">elena-oprea-280b9a242</a></div>
+        <div>github — <a href="https://github.com/opreaelena24" target="_blank" rel="noopener">opreaelena24</a></div>
+        <div>phone — <a href="tel:07888491377">07888 491377</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>built by Elena · last updated 2026</footer>
+
+<script>
+  // Terminal hero: single orchestrated type-on sequence, runs once on load.
+  const termLines = [
+    { type: 'prompt', text: '$ whoami' },
+    { type: 'out', text: 'Elena Oprea — IT support, moving into dev &amp; cybersecurity' },
+    { type: 'prompt', text: '$ cat focus.txt' },
+    { type: 'out', text: 'Junior Developer / Junior Cybersecurity Analyst roles' },
+    { type: 'dim', text: 'based in Kidderminster, UK — see ~/about below' },
+  ];
+
+  const termEl = document.getElementById('term');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderStatic(){
+    termEl.innerHTML = termLines.map(l => {
+      const cls = l.type === 'prompt' ? 'prompt' : (l.type === 'dim' ? 'dim' : 'out');
+      return `<div class="line ${cls}">${l.text}</div>`;
+    }).join('');
+  }
+
+  async function typeLine(el, text, speed){
+    for(let i=0;i<=text.length;i++){
+      el.innerHTML = text.slice(0,i);
+      await new Promise(r => setTimeout(r, speed));
+    }
+  }
+
+  async function runIntro(){
+    for(const l of termLines){
+      const div = document.createElement('div');
+      div.className = 'line ' + (l.type === 'prompt' ? 'prompt' : (l.type === 'dim' ? 'dim' : 'out'));
+      termEl.appendChild(div);
+      if(l.type === 'prompt'){
+        await typeLine(div, l.text, 32);
+        await new Promise(r => setTimeout(r, 180));
+      } else {
+        div.innerHTML = l.text;
+        await new Promise(r => setTimeout(r, 260));
+      }
+    }
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    termEl.lastChild.appendChild(cursor);
+  }
+
+  if(reduceMotion){ renderStatic(); }
+  else { runIntro(); }
+
+  function copyEmail(btn){
+    navigator.clipboard.writeText('opreaelena24@gmail.com').then(() => {
+      const original = btn.textContent;
+      btn.textContent = 'copied';
+      setTimeout(() => btn.textContent = original, 1400);
+    });
+  }
+</script>
+
+</body>
+</html>
