@@ -87,6 +87,12 @@
     font-family:'IBM Plex Mono', monospace; font-size: 14px; color:#B9CAC7;
   }
   .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow: 0 0 0 3px rgba(201,138,44,0.18); }
+  .cv-link{
+    margin-left: auto; color: #D7E4E2; text-decoration: none;
+    border: 1px solid var(--panel-line); border-radius: 3px;
+    padding: 4px 10px; font-size: 13px;
+  }
+  .cv-link:hover{ border-color: #7FA8A5; color: #7FA8A5; }
 
   /* ---------- Sections ---------- */
   main{ max-width: 960px; margin: 0 auto; padding: 0 var(--pad); }
@@ -156,6 +162,8 @@
     .entry, .skill-row{ grid-template-columns: 1fr; gap: 6px; }
     .entry-date{ padding-top:0; }
     .nav-links{ gap: 14px; font-size:13px; }
+    .status-row{ flex-wrap: wrap; row-gap: 12px; }
+    .cv-link{ margin-left: 0; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -184,6 +192,7 @@
     <div class="status-row">
       <span class="dot"></span>
       <span>open to work · Kidderminster, UK · remote or on-site</span>
+      <a class="cv-link mono" href="Elena_Oprea_CV.pdf" target="_blank" rel="noopener">↓ download CV (PDF)</a>
     </div>
   </div>
 </div>
