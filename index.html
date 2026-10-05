@@ -1,374 +1,490 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elena Oprea — IT & Cybersecurity</title>
-<meta name="description" content="Elena Oprea — IT support background, moving into junior development and cybersecurity. Projects, skills and experience.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elena Oprea | Junior Front-End Developer</title>
+<meta name="description" content="Elena Oprea is a junior front-end developer in Kidderminster, UK. She builds, launches and hands over websites for small businesses with HTML, CSS and JavaScript.">
+<link rel="canonical" href="https://elena-oprea-portfolio.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Elena Oprea | Junior Front-End Developer">
+<meta property="og:description" content="Websites for small businesses, built with HTML, CSS and JavaScript and taken all the way to launch.">
+<meta property="og:url" content="https://elena-oprea-portfolio.netlify.app/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#F2F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1220" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
+<script>
+try {
+  var saved = localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+} catch (e) {}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Elena Oprea",
+  "jobTitle": "Junior Front-End Developer",
+  "url": "https://elena-oprea-portfolio.netlify.app/",
+  "email": "mailto:opreaelena24@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Kidderminster", "addressCountry": "GB" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Arden University" },
+  "knowsAbout": ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "WordPress", "Technical SEO"]
+}
+</script>
 <style>
-  :root{
-    --bg: #F1F3F0;
-    --panel: #14181B;
-    --panel-line: #2A3136;
-    --ink: #14181B;
-    --ink-soft: #4B5459;
-    --line: #D6DAD5;
-    --accent: #2F6F6D;
-    --accent-soft: #E4EEED;
-    --amber: #C98A2C;
-    --paper: #FFFFFF;
-    --max: 700px;
-    --pad: 24px;
+:root {
+  --bg: #F2F4F7;
+  --surface: #FFFFFF;
+  --ink: #0E1A2B;
+  --muted: #4A5668;
+  --line: #D5DBE3;
+  --accent: #2447F5;
+  --on-accent: #FFFFFF;
+  --live: #1F9D55;
+  --sketch: #E6EAF0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1220;
+    --surface: #131B2D;
+    --ink: #E8ECF4;
+    --muted: #A3AEC2;
+    --line: #26324A;
+    --accent: #8EA2FF;
+    --on-accent: #0C1220;
+    --live: #4CD08A;
+    --sketch: #1B2640;
+    color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1220;
+  --surface: #131B2D;
+  --ink: #E8ECF4;
+  --muted: #A3AEC2;
+  --line: #26324A;
+  --accent: #8EA2FF;
+  --on-accent: #0C1220;
+  --live: #4CD08A;
+  --sketch: #1B2640;
+  color-scheme: dark;
+}
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-  a{ color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:hover{ color: var(--ink); }
-  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 1rem; top: -4rem; z-index: 10;
+  background: var(--ink); color: var(--bg);
+  padding: .6rem 1rem; border-radius: 8px;
+}
+.skip:focus { top: 1rem; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 
-  /* ---------- Nav ---------- */
-  nav{
-    position: sticky; top:0; z-index: 10;
-    background: rgba(241,243,240,0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner{
-    max-width: 960px; margin: 0 auto;
-    padding: 14px var(--pad);
-    display:flex; align-items:center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap;
-  }
-  .nav-brand{ font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:15px; color:var(--ink); text-decoration:none; }
-  .nav-links{ display:flex; gap:20px; font-family:'IBM Plex Mono', monospace; font-size:14px; }
-  .nav-links a{ color: var(--ink-soft); text-decoration:none; }
-  .nav-links a:hover{ color: var(--accent); }
+.site-header { padding: 1.25rem 0; }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
+.brand { font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em; text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .3em; }
+.theme-btn {
+  font: inherit; font-size: .9rem; color: var(--ink); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; padding: .35rem .9rem; cursor: pointer;
+}
+.theme-btn:hover { border-color: var(--muted); }
 
-  /* ---------- Hero (terminal) ---------- */
-  .hero-wrap{ background: var(--panel); }
-  .hero{
-    max-width: 960px; margin:0 auto;
-    padding: 64px var(--pad) 56px;
-  }
-  .term{
-    font-family:'IBM Plex Mono', monospace;
-    color: #D7E4E2;
-    font-size: 16px;
-    max-width: 640px;
-  }
-  .term .line{ margin: 0 0 6px; white-space: pre-wrap; }
-  .term .prompt{ color: #7FA8A5; }
-  .term .out{ color: #F1F3F0; }
-  .term .dim{ color: #7C8A87; }
-  .cursor{
-    display:inline-block; width:8px; height:16px; background:#D7E4E2;
-    margin-left:2px; vertical-align: -2px;
-    animation: blink 1s steps(1) infinite;
-  }
-  @keyframes blink{ 50%{ opacity:0; } }
+.hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(3rem, 7vw, 5rem); }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+h1 {
+  font-size: clamp(2.4rem, 1.2rem + 4.6vw, 4.6rem);
+  line-height: 1.02; letter-spacing: -.035em; font-weight: 700; max-width: 13em;
+}
+.lede { margin-top: 1.5rem; max-width: 34em; color: var(--muted); font-size: 1.15rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.btn {
+  display: inline-block; font-weight: 500; text-decoration: none;
+  padding: .75rem 1.4rem; border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.btn:hover { border-color: var(--muted); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { border-color: var(--accent); filter: brightness(1.08); }
 
-  .status-row{
-    margin-top: 28px; display:flex; align-items:center; gap:10px;
-    font-family:'IBM Plex Mono', monospace; font-size: 14px; color:#B9CAC7;
-  }
-  .dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow: 0 0 0 3px rgba(201,138,44,0.18); }
+.window { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.window-top { display: flex; align-items: center; gap: .9rem; padding: .7rem .9rem; border-bottom: 1px solid var(--line); }
+.dots { display: flex; gap: .35rem; flex: none; }
+.dots i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--line); }
+.pill {
+  flex: 1; min-width: 0; font-size: .85rem; color: var(--muted); background: var(--bg);
+  border-radius: 999px; padding: .2rem .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sites { list-style: none; padding: 0; }
+.sites li + li { border-top: 1px solid var(--line); }
+.site-link { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .75rem; padding: 1rem 1.1rem; text-decoration: none; }
+.site-link:hover { background: var(--bg); }
+.live-dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--live); flex: none; }
+.site-url { font-weight: 500; overflow-wrap: anywhere; }
+.site-kind { margin-left: auto; font-size: .85rem; color: var(--muted); }
 
-  /* ---------- Sections ---------- */
-  main{ max-width: 960px; margin: 0 auto; padding: 0 var(--pad); }
-  section{ padding: 56px 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type{ border-bottom:none; }
-  .section-inner{ max-width: var(--max); }
+@media (prefers-reduced-motion: no-preference) {
+  .sites li { opacity: 0; transform: translateY(8px); animation: rise .5s ease-out forwards; }
+  .sites li:nth-child(1) { animation-delay: .15s; }
+  .sites li:nth-child(2) { animation-delay: .3s; }
+  .sites li:nth-child(3) { animation-delay: .45s; }
+  .sites li:nth-child(4) { animation-delay: .6s; }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
 
-  h2{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 14px; font-weight:500;
-    color: var(--accent);
-    margin: 0 0 20px;
-  }
-  h2 .path{ color: var(--ink-soft); }
+.section { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--line); }
+h2 { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.4rem); line-height: 1.15; letter-spacing: -.025em; font-weight: 700; }
+.section-head { max-width: 40em; margin-bottom: 2.5rem; }
+.section-head p { margin-top: .75rem; color: var(--muted); }
 
-  h3{ font-size: 19px; margin: 0 0 4px; }
-  p{ margin: 0 0 14px; color: var(--ink); }
-  .muted{ color: var(--ink-soft); }
+.flagship { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.projects-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; margin-top: clamp(2.5rem, 6vw, 4rem); }
+.project-body { margin-top: 1.1rem; }
+.flagship .project-body { margin-top: 0; }
+.project-body h3 { font-size: 1.35rem; line-height: 1.2; letter-spacing: -.015em; font-weight: 700; }
+.flagship .project-body h3 { font-size: 1.9rem; }
+.meta { margin-top: .25rem; color: var(--muted); font-size: .95rem; }
+.desc { margin-top: .85rem; }
+.built { margin-top: .85rem; color: var(--muted); font-size: .95rem; }
+.visit { display: inline-block; margin-top: 1.1rem; font-weight: 500; color: var(--accent); text-underline-offset: .25em; overflow-wrap: anywhere; }
 
-  .lede{ font-size: 20px; line-height:1.55; max-width: var(--max); }
+.sketch { display: grid; align-content: start; gap: .6rem; padding: 1rem; min-height: 11rem; background: var(--sketch); }
+.flagship .sketch { min-height: 15rem; }
+.s-nav { height: .55rem; width: 45%; border-radius: 3px; background: var(--hue); }
+.s-hero { height: 4.2rem; border-radius: 6px; background: var(--hue); opacity: .35; }
+.flagship .s-hero { height: 6.5rem; }
+.s-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; height: 3rem; }
+.flagship .s-cols { height: 4.2rem; }
+.s-cols i { border-radius: 5px; background: var(--surface); border: 1px solid var(--line); }
+.s-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: .3rem; }
+.s-grid i { aspect-ratio: 1; border-radius: 3px; background: var(--surface); border: 1px solid var(--line); }
+.s-grid i.on { background: var(--hue); border-color: var(--hue); }
 
-  /* ---------- Skills ---------- */
-  .skill-log{ border-top: 1px solid var(--line); }
-  .skill-row{
-    display:grid; grid-template-columns: 150px 1fr;
-    gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line);
-  }
-  .skill-tag{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); }
-  .skill-vals{ color: var(--ink); }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.75rem; counter-reset: step; }
+.steps li { counter-increment: step; border-top: 2px solid var(--ink); padding-top: 1rem; }
+.steps li::before { content: counter(step); display: block; font-size: 2.2rem; font-weight: 700; letter-spacing: -.03em; line-height: 1; color: var(--accent); }
+.steps h3 { margin-top: .75rem; font-size: 1.15rem; font-weight: 700; }
+.steps p { margin-top: .5rem; color: var(--muted); font-size: .98rem; }
 
-  /* ---------- Projects ---------- */
-  .project{ padding: 26px 0; border-top: 1px solid var(--line); }
-  .project:first-child{ border-top:none; padding-top:0; }
-  .project-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-  .project-links{ font-family:'IBM Plex Mono', monospace; font-size: 13px; white-space:nowrap; }
-  .project-links a{ margin-left: 14px; }
-  .project-links a:first-child{ margin-left:0; }
-  .project-tech{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft); margin: 4px 0 10px; }
-  .project ul{ margin: 8px 0 0; padding-left: 20px; }
-  .project li{ margin-bottom: 6px; }
+.about-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 4rem); }
+.prose p + p { margin-top: 1rem; }
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-top: 2.5rem; }
+.skills dt { font-weight: 700; }
+.skills dd { margin-top: .2rem; color: var(--muted); }
 
-  /* ---------- Experience (changelog) ---------- */
-  .entry{ display:grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line); }
-  .entry:first-child{ border-top:none; padding-top:0; }
-  .entry-date{ font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink-soft); padding-top: 3px; }
-  .entry-role{ font-weight:600; }
-  .entry-co{ color: var(--ink-soft); }
-  .entry ul{ margin: 10px 0 0; padding-left: 20px; }
-  .entry li{ margin-bottom: 6px; }
+.timeline { list-style: none; padding: 0; display: grid; gap: 1.75rem; }
+.timeline li { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: .25rem 2rem; }
+.when { color: var(--muted); font-size: .95rem; }
+.timeline h3 { font-size: 1.15rem; font-weight: 700; }
+.where { color: var(--muted); }
+.timeline p { margin-top: .4rem; }
 
-  /* ---------- Contact ---------- */
-  .contact-list{ display:flex; flex-direction:column; gap: 10px; font-family:'IBM Plex Mono', monospace; font-size: 15px; }
-  .copy-btn{
-    font-family:'IBM Plex Mono', monospace; font-size: 13px;
-    background: var(--accent-soft); color: var(--accent);
-    border: 1px solid var(--accent); border-radius: 3px;
-    padding: 3px 10px; cursor:pointer; margin-left: 10px;
-  }
-  .copy-btn:hover{ background: var(--accent); color: #fff; }
+.email { display: inline-block; margin-top: 1.25rem; font-size: clamp(1.4rem, 1rem + 2.2vw, 2.4rem); font-weight: 700; letter-spacing: -.02em; color: var(--accent); text-underline-offset: .2em; overflow-wrap: anywhere; }
+.place { margin-top: 1rem; color: var(--muted); }
 
-  footer{ text-align:center; padding: 32px var(--pad) 48px; color: var(--ink-soft); font-size: 13px; font-family:'IBM Plex Mono', monospace; }
+.site-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 
-  @media (max-width: 640px){
-    .hero{ padding: 44px var(--pad) 40px; }
-    .term{ font-size: 14.5px; }
-    section{ padding: 40px 0; }
-    .entry, .skill-row{ grid-template-columns: 1fr; gap: 6px; }
-    .entry-date{ padding-top:0; }
-    .nav-links{ gap: 14px; font-size:13px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .cursor{ animation: none; }
-  }
+@media (max-width: 900px) {
+  .hero-grid, .flagship, .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .projects-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .projects-row, .steps, .skills { grid-template-columns: minmax(0, 1fr); }
+  .timeline li { grid-template-columns: minmax(0, 1fr); }
+  .site-kind { margin-left: 0; width: 100%; padding-left: 1.3rem; }
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="#top">elena.oprea</a>
-    <div class="nav-links">
-      <a href="#about">~/about</a>
-      <a href="#skills">~/skills</a>
-      <a href="#projects">~/projects</a>
-      <a href="#experience">~/experience</a>
-      <a href="#contact">~/contact</a>
-    </div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Elena Oprea</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#launch">How I launch a site</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="theme-btn" type="button">Dark mode</button>
+    </nav>
   </div>
-</nav>
+</header>
 
-<div class="hero-wrap" id="top">
-  <div class="hero">
-    <div class="term" id="term"></div>
-    <div class="status-row">
-      <span class="dot"></span>
-      <span>open to work · Kidderminster, UK · remote or on-site</span>
-    </div>
-  </div>
-</div>
-
-<main>
-
-  <section id="about">
-    <div class="section-inner">
-      <h2><span class="path">~/</span>about</h2>
-      <p class="lede">I'm a Computing graduate who's spent the last few years actually doing IT work rather than just studying it — setting up hardware, sorting out technical problems, and keeping a company website running.</p>
-      <p>Alongside that I picked up Java, PHP and JavaScript, and did some hands-on work with AWS and security standards. I'm now looking to move into a <strong>Junior Developer</strong> or <strong>Junior Cybersecurity Analyst</strong> role — I like figuring out how things work, and how they break, and I pick things up quickly.</p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="section-inner">
-      <h2><span class="path">~/</span>skills</h2>
-      <div class="skill-log">
-        <div class="skill-row">
-          <div class="skill-tag">programming</div>
-          <div class="skill-vals">Java (fundamentals), HTML, CSS, JavaScript, PHP, MySQL</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-tag">cloud &amp; security</div>
-          <div class="skill-vals">AWS cloud migration basics, ISO security standards fundamentals</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-tag">it support</div>
-          <div class="skill-vals">Hardware configuration &amp; troubleshooting, RAM/system setup</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-tag">platforms</div>
-          <div class="skill-vals">WordPress, Microsoft Office 365, Google Ads &amp; SEO basics</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-tag">other</div>
-          <div class="skill-vals">Bilingual (Romanian native, English fluent), teamwork, organisation</div>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>I build websites for small businesses and take them all the way to launch.</h1>
+        <p class="lede">I'm Elena, a junior front-end developer in Kidderminster, UK. I write HTML, CSS and JavaScript, and I handle the domain, the deploy and the hand-over too.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:opreaelena24@gmail.com">Email me</a>
+          <a class="btn" href="#work">See my work</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="section-inner">
-      <h2><span class="path">~/</span>projects</h2>
-
-      <div class="project">
-        <div class="project-head">
-          <h3>5 Minute Habits</h3>
-          <div class="project-links">
-            <a href="https://5-minute-habits.netlify.app" target="_blank" rel="noopener">live</a>
-            <a href="https://github.com/opreaelena24/5-minute-habits" target="_blank" rel="noopener">code</a>
-          </div>
+      <div class="window">
+        <div class="window-top">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="pill">Sites I've shipped</span>
         </div>
-        <div class="project-tech">HTML · CSS · JavaScript · LocalStorage</div>
-        <p>A small web app that helps people swap mindless scrolling for short, intentional 5-minute habits.</p>
-        <ul>
-          <li>Focus timer, habit categories, and a streak-tracking system</li>
-          <li>30-day progress calendar and an anti-scroll distraction counter</li>
-          <li>Dark mode, deployed live on Netlify</li>
+        <ul class="sites">
+          <li><a class="site-link" href="https://cgrjoineryconstruction.co.uk" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span><span class="site-url">cgrjoineryconstruction.co.uk</span><span class="site-kind">Joinery, UK</span></a></li>
+          <li><a class="site-link" href="https://agrinstale-website.netlify.app" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span><span class="site-url">agrinstale-website.netlify.app</span><span class="site-kind">Plumbing and heating, Romania</span></a></li>
+          <li><a class="site-link" href="https://bnlbeauty-website.netlify.app" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span><span class="site-url">bnlbeauty-website.netlify.app</span><span class="site-kind">Manicure and makeup, Romania</span></a></li>
+          <li><a class="site-link" href="https://5-minute-habits.netlify.app" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span><span class="site-url">5-minute-habits.netlify.app</span><span class="site-kind">Habit tracker app</span></a></li>
         </ul>
       </div>
-
-      <!-- Add further projects here, following the same .project block structure -->
-
     </div>
   </section>
 
-  <section id="experience">
-    <div class="section-inner">
-      <h2><span class="path">~/</span>experience</h2>
-
-      <div class="entry">
-        <div class="entry-date">Oct 2022 —<br>present</div>
-        <div>
-          <div class="entry-role">Masking Technician &amp; Digital Support</div>
-          <div class="entry-co">Hard Anodising Treatments Ltd, Kidderminster, UK</div>
-          <ul>
-            <li>Keep the company website updated on WordPress — content, small fixes, general upkeep</li>
-            <li>Run the company's social media to help build up its presence online</li>
-            <li>Work to precise technical standards on the production side, so quality stays consistent</li>
-          </ul>
-        </div>
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">Work</h2>
+        <p>Three client sites and one app of my own. Every link opens the live site.</p>
       </div>
 
-      <div class="entry">
-        <div class="entry-date">May 2021 —<br>Sept 2022</div>
-        <div>
-          <div class="entry-role">Configuration Engineer</div>
-          <div class="entry-co">Greensafe IT, Kidderminster, UK</div>
-          <ul>
-            <li>Configured hardware for client deployments, including RAM upgrades and full system setups</li>
-            <li>Handled IT support requests and troubleshooting, usually turning issues around quickly</li>
-          </ul>
+      <article class="flagship">
+        <div class="window">
+          <div class="window-top">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="pill">cgrjoineryconstruction.co.uk</span>
+          </div>
+          <div class="sketch" style="--hue:#B9803F" aria-hidden="true">
+            <span class="s-nav"></span><span class="s-hero"></span>
+            <span class="s-cols"><i></i><i></i><i></i></span>
+          </div>
         </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">Mar 2022 —<br>Aug 2025</div>
-        <div>
-          <div class="entry-role">BSc (Hons) Computing</div>
-          <div class="entry-co">Arden University, Birmingham, UK</div>
-          <ul>
-            <li>Focus: programming, software development, data analysis, artificial intelligence</li>
-          </ul>
+        <div class="project-body">
+          <h3>CGR Joinery &amp; Construction Ltd</h3>
+          <p class="meta">Client website, UK</p>
+          <p class="desc">A website for a UK construction company, live on its own domain. I launched it in stages: a coming-soon page on the live domain while the full site was reviewed at a hidden, no-index URL. It includes LocalBusiness structured data, Open Graph tags, click-to-call and WhatsApp contact, and a hand-over guide for the client.</p>
+          <p class="built">Built with HTML, CSS and JavaScript.</p>
+          <a class="visit" href="https://cgrjoineryconstruction.co.uk" target="_blank" rel="noopener">Visit cgrjoineryconstruction.co.uk</a>
         </div>
-      </div>
+      </article>
 
+      <div class="projects-row">
+        <article>
+          <div class="window">
+            <div class="window-top">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="pill">agrinstale-website.netlify.app</span>
+            </div>
+            <div class="sketch" style="--hue:#2B7FD9" aria-hidden="true">
+              <span class="s-nav"></span><span class="s-hero"></span>
+              <span class="s-cols"><i></i><i></i><i></i></span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>AGRINSTALe</h3>
+            <p class="meta">Client website, Romania</p>
+            <p class="desc">A company site for a plumbing, heating and heat pump installer. Version-controlled on GitHub and deployed on Netlify.</p>
+            <p class="built">Built with HTML, CSS, JavaScript, Git and Netlify.</p>
+            <a class="visit" href="https://agrinstale-website.netlify.app" target="_blank" rel="noopener">Visit agrinstale-website.netlify.app</a>
+          </div>
+        </article>
+
+        <article>
+          <div class="window">
+            <div class="window-top">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="pill">bnlbeauty-website.netlify.app</span>
+            </div>
+            <div class="sketch" style="--hue:#D2648F" aria-hidden="true">
+              <span class="s-nav"></span><span class="s-hero"></span>
+              <span class="s-cols"><i></i><i></i><i></i></span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>BNLbeauty</h3>
+            <p class="meta">Client website, Romania</p>
+            <p class="desc">A minimal site for a manicure and makeup business, with a gallery of their work and booking through Instagram and WhatsApp.</p>
+            <p class="built">Built with HTML, CSS and JavaScript.</p>
+            <a class="visit" href="https://bnlbeauty-website.netlify.app" target="_blank" rel="noopener">Visit bnlbeauty-website.netlify.app</a>
+          </div>
+        </article>
+
+        <article>
+          <div class="window">
+            <div class="window-top">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="pill">5-minute-habits.netlify.app</span>
+            </div>
+            <div class="sketch" style="--hue:#1F9D55" aria-hidden="true">
+              <span class="s-nav"></span>
+              <span class="s-grid">
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>5 Minute Habits</h3>
+            <p class="meta">Personal project</p>
+            <p class="desc">A web app with a focus timer, streak tracking, a 30-day progress calendar and dark mode. All data stays in the browser with LocalStorage.</p>
+            <p class="built">Built with JavaScript, CSS and LocalStorage.</p>
+            <a class="visit" href="https://5-minute-habits.netlify.app" target="_blank" rel="noopener">Visit 5-minute-habits.netlify.app</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="section-inner">
-      <h2><span class="path">~/</span>contact</h2>
-      <div class="contact-list">
-        <div>email — <a href="mailto:opreaelena24@gmail.com">opreaelena24@gmail.com</a>
-          <button class="copy-btn" onclick="copyEmail(this)">copy</button>
+  <section class="section" id="launch" aria-labelledby="launch-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="launch-title">How I launch a site</h2>
+        <p>The same four steps on every client project, from the first conversation to the hand-over.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Brief</h3>
+          <p>I agree with the client what the site needs to do and how visitors should reach them: a call, WhatsApp, Instagram or a form.</p>
+        </li>
+        <li>
+          <h3>Build</h3>
+          <p>Plain HTML, CSS and JavaScript, responsive from phone to desktop, with accessibility basics like visible focus states and reduced motion.</p>
+        </li>
+        <li>
+          <h3>Review</h3>
+          <p>The client checks the full site at a hidden, no-index URL. A coming-soon page can hold the live domain in the meantime.</p>
+        </li>
+        <li>
+          <h3>Launch and hand over</h3>
+          <p>I set up the domain and the deploy, add meta tags, canonical URLs, Open Graph and structured data, and write a guide so the client can look after the site.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <h2 id="about-title">About</h2>
+      <div>
+        <div class="prose">
+          <p>I'm a Computing graduate (BSc Hons, Arden University) based in Kidderminster.</p>
+          <p>Before web development I spent over a year as a Configuration Engineer at Greensafe IT, installing hardware, upgrading RAM and fixing faults for clients. It taught me to work out why something isn't working and fix it quickly, and I use the same habit when I debug a page.</p>
+          <p>Right now I'm looking for a junior front-end or web developer role where I can keep learning alongside a team.</p>
         </div>
-        <div>linkedin — <a href="https://linkedin.com/in/elena-oprea-280b9a242" target="_blank" rel="noopener">elena-oprea-280b9a242</a></div>
-        <div>github — <a href="https://github.com/opreaelena24" target="_blank" rel="noopener">opreaelena24</a></div>
-        <div>phone — <a href="tel:07888491377">07888 491377</a></div>
+        <dl class="skills">
+          <div><dt>Front end</dt><dd>HTML5, CSS3, JavaScript, responsive design, accessibility basics such as focus states and reduced motion, LocalStorage, dark mode</dd></div>
+          <div><dt>Back end and data</dt><dd>PHP, MySQL, WordPress, Java fundamentals</dd></div>
+          <div><dt>Shipping</dt><dd>Git and GitHub, Netlify deploys, custom domains</dd></div>
+          <div><dt>SEO</dt><dd>Meta tags, canonical URLs, Open Graph, structured data</dd></div>
+          <div><dt>Hardware and IT</dt><dd>Hardware configuration, RAM upgrades, troubleshooting</dd></div>
+          <div><dt>Languages</dt><dd>Romanian (native), English (fluent)</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="experience-title">Experience and education</h2>
+      </div>
+      <ul class="timeline">
+        <li>
+          <span class="when">Oct 2022 – Present</span>
+          <div>
+            <h3>Masking Technician &amp; Digital Support</h3>
+            <p class="where">Hard Anodising Treatments Ltd, Kidderminster</p>
+            <p>I maintain the company's WordPress website, keeping content and functionality up to date, and run its social media.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">May 2021 – Sept 2022</span>
+          <div>
+            <h3>Configuration Engineer</h3>
+            <p class="where">Greensafe IT, Kidderminster</p>
+            <p>I configured hardware for client deployments, including RAM upgrades and full system set-ups, and handled IT support and troubleshooting.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Mar 2022 – Aug 2025</span>
+          <div>
+            <h3>BSc (Hons) Computing</h3>
+            <p class="where">Arden University, Birmingham</p>
+            <p>Programming, software development, data analysis and artificial intelligence.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Courses</span>
+          <div>
+            <p>Fundamentals of Java Programming, Migrating to the AWS Cloud, Understanding ISO Security Standards, Create a Website Using WordPress, Introduction to Google SEO, and Foundations of Digital Marketing and E-commerce.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="contact-title">Contact</h2>
+        <p>I'm open to junior front-end and web developer roles. Email is the quickest way to reach me.</p>
+      </div>
+      <a class="email" href="mailto:opreaelena24@gmail.com">opreaelena24@gmail.com</a>
+      <p class="place">Kidderminster, United Kingdom</p>
+    </div>
+  </section>
 </main>
 
-<footer>built by Elena · last updated 2026</footer>
+<footer class="site-footer">
+  <div class="wrap">&copy; 2026 Elena Oprea</div>
+</footer>
 
 <script>
-  // Terminal hero: single orchestrated type-on sequence, runs once on load.
-  const termLines = [
-    { type: 'prompt', text: '$ whoami' },
-    { type: 'out', text: 'Elena Oprea — IT support, moving into dev &amp; cybersecurity' },
-    { type: 'prompt', text: '$ cat focus.txt' },
-    { type: 'out', text: 'Junior Developer / Junior Cybersecurity Analyst roles' },
-    { type: 'dim', text: 'based in Kidderminster, UK — see ~/about below' },
-  ];
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-btn');
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
 
-  const termEl = document.getElementById('term');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function renderStatic(){
-    termEl.innerHTML = termLines.map(l => {
-      const cls = l.type === 'prompt' ? 'prompt' : (l.type === 'dim' ? 'dim' : 'out');
-      return `<div class="line ${cls}">${l.text}</div>`;
-    }).join('');
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return mq.matches ? 'dark' : 'light';
   }
-
-  async function typeLine(el, text, speed){
-    for(let i=0;i<=text.length;i++){
-      el.innerHTML = text.slice(0,i);
-      await new Promise(r => setTimeout(r, speed));
-    }
+  function label() {
+    var dark = current() === 'dark';
+    btn.textContent = dark ? 'Light mode' : 'Dark mode';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
   }
-
-  async function runIntro(){
-    for(const l of termLines){
-      const div = document.createElement('div');
-      div.className = 'line ' + (l.type === 'prompt' ? 'prompt' : (l.type === 'dim' ? 'dim' : 'out'));
-      termEl.appendChild(div);
-      if(l.type === 'prompt'){
-        await typeLine(div, l.text, 32);
-        await new Promise(r => setTimeout(r, 180));
-      } else {
-        div.innerHTML = l.text;
-        await new Promise(r => setTimeout(r, 260));
-      }
-    }
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor';
-    termEl.lastChild.appendChild(cursor);
-  }
-
-  if(reduceMotion){ renderStatic(); }
-  else { runIntro(); }
-
-  function copyEmail(btn){
-    navigator.clipboard.writeText('opreaelena24@gmail.com').then(() => {
-      const original = btn.textContent;
-      btn.textContent = 'copied';
-      setTimeout(() => btn.textContent = original, 1400);
-    });
-  }
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    label();
+  });
+  if (mq.addEventListener) mq.addEventListener('change', label);
+  label();
+})();
 </script>
-
 </body>
 </html>
